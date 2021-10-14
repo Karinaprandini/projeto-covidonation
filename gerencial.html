@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <link rel="sortcut icon" href="src/assets/img/CovidLogo.png" type="image">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="src/assets/css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <title>Gerencial - CoviDonation</title>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">CoviDonation - Administração</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Gerenciamento<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Usuários</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Sair</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section class="container p-3" style="margin-top: 15px;">
+
+      <h1><b>Olá, Paulo César!</b></h1>
+      <h5>Seja bem-vindo ao Portal Administrativo do CoviDonation!</h5>
+      <hr>
+      <div style="background-color: forestgreen;" class="text-center text-white">
+        <br>
+        <h3>Valor Arrecado pelo o CoviDonation</h3>
+        <h1><b>R$ 39.166,18</b></h1>
+        <br>
+      </div>
+    </section>
+
+    </section>
+    <section class="container p-3">
+      <h3><b>Total de Arrecadações diárias</b></h3>
+      <p>A tabela abaixo mostra o total arrecadado pelo o CoviDonation:</p>
+      <table class="table table-hover">
+        <thead class="text-center">
+          <tr>
+            <th scope="col">Data</th>
+            <th scope="col">Quantia Arrecadada</th>
+            <th scope="col">Valor acumulado no mês</th>
+            <th scope="col">Total acumulado</th>
+          </tr>
+        </thead>
+        <tbody class="text-center">
+          <tr>
+            <td scope="row">09/10/2021</td>
+            <td>R$1.254,98</td>
+
+            <td>R$2.776,12</td>
+            <td>R$32.677,98</td>
+          </tr>
+          <tr>
+            <td scope="row">10/10/2021</td>
+            <td>R$467,98</td>
+            <td>R$3.244,10</td>
+            <td>R$33.145,96</td>
+          </tr>
+          <tr>
+            <td scope="row">11/10/2021</td>
+            <td>R$2.776,12</td>
+            <td>R$6.020,22</td>
+            <td>R$39.166,18</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="text-right">
+        <button type="button" class="btn btn-outline-success">Adicionar</button>
+        <button type="button" class="btn btn-outline-primary">Alterar</button>
+        <button type="button" class="btn btn-outline-danger">Remover</button>
+      </div>
+    </section>
+
+    <section class="container p-3">
+      <h3><b>Compra de alimentos</b></h3>
+      <p>A tabela abaixo mostra os alimentos comprados e a relação de dinheiro disponível:</p>
+      <table class="table table-hover">
+        <thead class="text-center">
+          <tr>
+            <th scope="col">Data da compra</th>
+            <th scope="col">Qtd</th>
+            <th scope="col">Nome do Alimento</th>
+            <th scope="col">Arrecadação</th>
+            <th scope="col">Valor Unitário</th>
+            <th scope="col">Valor Total</th>
+            <th scope="col">Saldo disponível</th>
+          </tr>
+        </thead>
+
+
+        <tbody class="text-center">
+          <tr>
+            <td scope="row">09/10/2021</td>
+            <td>42</td>
+            <td>Óleo de Cozinha</td>
+            <td>Comprado</td>
+            <td>R$7,80</td>
+            <td>R$327,60</td>
+            <td>R$11.765,93</td>
+          </tr>
+          <tr>
+            <td scope="row">10/10/2021</td>
+            <td>30</td>
+            <td>Pacote de Arroz 5Kg</td>
+            <td>Comprado</td>
+            <td>R$24,55</td>
+            <td>R$736,50</td>
+            <td>R$11.029,43</td>
+          </tr>
+          <tr>
+            <td scope="row">11/10/2021</td>
+            <td>60</td>
+            <td>Pacote de Macarrão</td>
+            <td>Doado</td>
+            <td>-</td>
+            <td>-</td>
+            <td>R$11.029,43</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="text-right">
+        <button type="button" class="btn btn-outline-success">Adicionar</button>
+        <button type="button" class="btn btn-outline-primary">Alterar</button>
+        <button type="button" class="btn btn-outline-danger">Remover</button>
+      </div>
+    </section>
+
+    <section class="container p-3">
+      <h3><b>Alimentos em estoque</b></h3>
+      <p>A tabela abaixo mostra todos os alimentos em estoque:</p>
+      <table class="table table-hover">
+        <thead class="text-center">
+          <tr>
+            <th scope="col">Nome do Alimento</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Qtd</th>
+            <th scope="col">Vencimento</th>
+
+          </tr>
+        </thead>
+
+
+        <tbody class="text-center">
+          <tr>
+            <td scope="row">Leite Integral 1L</td>
+            <td>Leite Integral de um litro Piracanjuba</td>
+            <td>22</td>
+            <td>15/12/2021</td>
+
+          </tr>
+          <tr>
+            <td scope="row">Pacote de Arroz</td>
+            <td>Arroz 5kg Prato Fino</td>
+            <td>30</td>
+            <td>Perecível</td>
+          </tr>
+          <tr>
+            <td scope="row">Pacote de Macarrão</td>
+            <td>Macarrão de ovos Adria 120g</td>
+            <td>60</td>
+            <td>27/08/2021</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="text-right">
+        <button type="button" class="btn btn-outline-success">Adicionar</button>
+        <button type="button" class="btn btn-outline-primary">Alterar</button>
+        <button type="button" class="btn btn-outline-danger">Remover</button>
+      </div>
+    </section>
+
+  </main>
+  <footer>
+    <hr>
+
+    <p class="text-center">Portal Administrativo <br>CoviDonation - Todos os direitos reservados</p>
+  </footer>
+</body>
+
+</html>
