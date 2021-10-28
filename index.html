@@ -65,7 +65,7 @@
   <main>
     <div>
       <section>
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div id="carouselExampleIndicators" class="carousel slide position-head" data-ride="carousel">
           <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -174,7 +174,7 @@
       <br /><br />
       <div class="container">
         <div class="row">
-          <div class="col-6">
+          <div class="col-sm-6">
             <h2 class="font font-weight-bold">Acompanhe a gente em nossas redes sociais!</h2>
             <br />
             <p class="font text-justify">
@@ -187,7 +187,7 @@
               <li><a class="dribbble" href="#"><i class="fa fa-instagram"></i></a></li>
             </ul>
           </div>
-          <div class="col-6">
+          <div class="col-sm-6">
             <blockquote class="twitter-tweet">
               <p lang="pt" dir="ltr">Nós do CoviDonation precisamos de você! Doe e ajude quem mais precisa nesse
                 momento!👐🙌</p>&mdash; CoviDonation (@CoviDonation) <a
@@ -344,12 +344,27 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-primary botao-cor-especial">Enviar</button>
+          <button type="button" class="btn btn-primary botao-cor-especial" onclick="myFunction()">Enviar</button>
         </div>
       </div>
     </div>
   </div>
 
+  <script src="https://smtpjs.com/v3/smtp.js">
+   function myFunction() {
+   Email.send({
+    Host : " smtp.gmail.com",
+    Username : "covidonation@gmail.com",
+    Password : "covidonation123",
+    To : 'danicocelli@gmail.com',
+    From : "covidonation@gmail.com",
+    Subject : "This is the subject",
+    Body : "And this is the body"
+    }).then(
+      message => alert(message)
+    );
+  };
+  </script>
   <script src="https://kit.fontawesome.com/f02493a03c.js" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
