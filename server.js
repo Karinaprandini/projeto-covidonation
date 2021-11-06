@@ -39,6 +39,7 @@ app.post('/', (req,res) =>{
         replyTo: req.body.email
     }).then(message =>{
         console.log(message);
+        res.send('success');
     }).catch(err => {
         console.log(err);
     })

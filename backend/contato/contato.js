@@ -20,7 +20,7 @@ enviar.onclick = function(){
     xhr.setRequestHeader('content-type','application/json');
     xhr.onload = function(){
         console.log(xhr.responseText);
-        if(xhr.responseText = "success"){ 
+        if(xhr.responseText == "success"){ 
             alert('Email enviado!');
             nome.value = '';
             email.value = '';
