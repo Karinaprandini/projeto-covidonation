@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import CreateUserService from '../services/User/CreateUserService';
+import UpdateUserService from '../services/User/UpdateUserService';
 
 const usersRouter = Router();
 
@@ -28,8 +29,20 @@ usersRouter.post('/', async (request, response) => {
   return response.json(user);
 });
 
-usersRouter.put('/', (request, response) => {
-  return response.json({ message: 'Update User' });
+usersRouter.put('/', async (request, response) => {
+  const { id, name, email, password } = request.body;
+
+  const updateUser = new UpdateUserService();
+  const user: User = await updateUser.execute({
+    id,
+    name,
+    email,
+    password,
+  });
+
+  delete user.password;
+
+  return response.json(user);
 });
 
 usersRouter.delete('/', (request, response) => {
