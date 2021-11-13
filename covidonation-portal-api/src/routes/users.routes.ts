@@ -45,8 +45,10 @@ usersRouter.put('/', async (request, response) => {
   return response.json(user);
 });
 
-usersRouter.delete('/', (request, response) => {
-  return response.json({ message: 'Delete User' });
+usersRouter.delete('/:uuid', (request, response) => {
+  const { uuid } = request.params;
+
+  return response.json({ message: `User ${uuid} deleted` });
 });
 
 export default usersRouter;

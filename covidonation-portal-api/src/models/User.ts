@@ -23,6 +23,9 @@ class User {
   @Column()
   password: string;
 
+  @Column()
+  active: boolean;
+
   @OneToMany(() => Statement, (statement) => statement.user)
   statement: Statement[];
 

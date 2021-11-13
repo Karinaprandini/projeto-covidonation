@@ -13,7 +13,7 @@ npm i
 Após instalação é necessário criar as tabelas no banco de dados.
 
 ```
-npm run typeorm migrations:run
+npm run typeorm migration:run
 ```
 
 Após a criação das tabelas do banco é necessário inicar o servidor que está rodando localhost:3000
