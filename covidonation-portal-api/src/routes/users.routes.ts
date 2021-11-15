@@ -1,24 +1,37 @@
+import { getRepository } from 'typeorm';
 import { Router } from 'express';
 import CreateUserService from '../services/User/CreateUserService';
 import UpdateUserService from '../services/User/UpdateUserService';
+import User from '../models/User';
 
 const usersRouter = Router();
 
-interface User {
+interface IUser {
   name: string;
   email: string;
   password?: string;
 }
 
-usersRouter.get('/', (request, response) => {
-  return response.json({ message: 'Users' });
+usersRouter.get('/:id', (request, response) => {
+  const { id } = request.params;
+
+  const userRepository = getRepository(User);
+
+  userRepository
+    .findOne(id)
+    .then((user) => {
+      return response.json(user);
+    })
+    .catch((err) => {
+      return response.status(400).json({ error: err.message });
+    });
 });
 
 usersRouter.post('/', async (request, response) => {
   const { name, email, password } = request.body;
 
   const createUser = new CreateUserService();
-  const user: User = await createUser.execute({
+  const user: IUser = await createUser.execute({
     name,
     email,
     password,
@@ -33,7 +46,7 @@ usersRouter.put('/', async (request, response) => {
   const { id, name, email, password } = request.body;
 
   const updateUser = new UpdateUserService();
-  const user: User = await updateUser.execute({
+  const user: IUser = await updateUser.execute({
     id,
     name,
     email,
@@ -45,10 +58,20 @@ usersRouter.put('/', async (request, response) => {
   return response.json(user);
 });
 
-usersRouter.delete('/:uuid', (request, response) => {
-  const { uuid } = request.params;
+usersRouter.delete('/:id', (request, response) => {
+  const { id } = request.params;
 
-  return response.json({ message: `User ${uuid} deleted` });
+  const userRepository = getRepository(User);
+
+  userRepository
+    .findOne(id)
+    .then((user) => {
+      userRepository.remove(user!);
+      return response.status(204).send();
+    })
+    .catch((err) => {
+      return response.status(400).json({ error: err.message });
+    });
 });
 
 export default usersRouter;

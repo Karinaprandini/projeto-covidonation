@@ -2,7 +2,7 @@
   "name": "projeto-covidonation-api",
   "version": "1.0.0",
   "description": "Portal CoviDonation",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "build": "tsc",
     "start": "nodemon src/server.ts",
