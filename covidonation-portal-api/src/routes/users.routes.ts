@@ -1,8 +1,8 @@
-import { getRepository } from 'typeorm';
-import { Router } from 'express';
-import CreateUserService from '../services/User/CreateUserService';
-import UpdateUserService from '../services/User/UpdateUserService';
-import User from '../models/User';
+import { getRepository } from "typeorm";
+import { response, Router } from "express";
+import CreateUserService from "../services/User/CreateUserService";
+import UpdateUserService from "../services/User/UpdateUserService";
+import User from "../models/User";
 
 const usersRouter = Router();
 
@@ -12,7 +12,11 @@ interface IUser {
   password?: string;
 }
 
-usersRouter.get('/:id', (request, response) => {
+usersRouter.get("/", (request, response) => {
+  return response.status(200).json({ msg: "Karina" });
+});
+
+usersRouter.get("/:id", (request, response) => {
   const { id } = request.params;
 
   const userRepository = getRepository(User);
@@ -27,22 +31,21 @@ usersRouter.get('/:id', (request, response) => {
     });
 });
 
-usersRouter.post('/', async (request, response) => {
+usersRouter.post("/", async (request, response) => {
   const { name, email, password } = request.body;
-
   const createUser = new CreateUserService();
   const user: IUser = await createUser.execute({
     name,
     email,
     password,
+    active: true,
   });
-
   delete user.password;
 
   return response.json(user);
 });
 
-usersRouter.put('/', async (request, response) => {
+usersRouter.put("/", async (request, response) => {
   const { id, name, email, password } = request.body;
 
   const updateUser = new UpdateUserService();
@@ -58,7 +61,7 @@ usersRouter.put('/', async (request, response) => {
   return response.json(user);
 });
 
-usersRouter.delete('/:id', (request, response) => {
+usersRouter.delete("/:id", (request, response) => {
   const { id } = request.params;
 
   const userRepository = getRepository(User);
