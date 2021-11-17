@@ -1,8 +1,8 @@
-import { getRepository } from "typeorm";
-import { response, Router } from "express";
-import CreateUserService from "../services/User/CreateUserService";
-import UpdateUserService from "../services/User/UpdateUserService";
-import User from "../models/User";
+import { getRepository } from 'typeorm';
+import { response, Router } from 'express';
+import CreateUserService from '../services/User/CreateUserService';
+import UpdateUserService from '../services/User/UpdateUserService';
+import User from '../models/User';
 
 const usersRouter = Router();
 
@@ -12,11 +12,15 @@ interface IUser {
   password?: string;
 }
 
-usersRouter.get("/", (request, response) => {
-  return response.status(200).json({ msg: "Karina" });
+usersRouter.get('/', (request, response) => {
+  const usersRepository = getRepository(User);
+  usersRepository
+    .find()
+    .then((users) => response.json(users))
+    .catch((err) => response.status(400).json({ error: err.message }));
 });
 
-usersRouter.get("/:id", (request, response) => {
+usersRouter.get('/:id', (request, response) => {
   const { id } = request.params;
 
   const userRepository = getRepository(User);
@@ -31,7 +35,7 @@ usersRouter.get("/:id", (request, response) => {
     });
 });
 
-usersRouter.post("/", async (request, response) => {
+usersRouter.post('/', async (request, response) => {
   const { name, email, password } = request.body;
   const createUser = new CreateUserService();
   const user: IUser = await createUser.execute({
@@ -45,8 +49,8 @@ usersRouter.post("/", async (request, response) => {
   return response.json(user);
 });
 
-usersRouter.put("/", async (request, response) => {
-  const { id, name, email, password } = request.body;
+usersRouter.put('/', async (request, response) => {
+  const { id, name, email, password, active } = request.body;
 
   const updateUser = new UpdateUserService();
   const user: IUser = await updateUser.execute({
@@ -54,6 +58,7 @@ usersRouter.put("/", async (request, response) => {
     name,
     email,
     password,
+    active,
   });
 
   delete user.password;
@@ -61,7 +66,7 @@ usersRouter.put("/", async (request, response) => {
   return response.json(user);
 });
 
-usersRouter.delete("/:id", (request, response) => {
+usersRouter.delete('/:id', (request, response) => {
   const { id } = request.params;
 
   const userRepository = getRepository(User);
@@ -70,7 +75,7 @@ usersRouter.delete("/:id", (request, response) => {
     .findOne(id)
     .then((user) => {
       userRepository.remove(user!);
-      return response.status(204).send();
+      return response.status(204).json({ msg: 'Usuário removido com sucesso' });
     })
     .catch((err) => {
       return response.status(400).json({ error: err.message });

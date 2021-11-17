@@ -8,9 +8,10 @@ interface Request {
   name: string;
   email: string;
   password: string;
+  active: boolean;
 }
 class UpdateUserService {
-  async execute({ id, name, email, password }: Request): Promise<User> {
+  async execute({ id, name, email, password, active }: Request): Promise<User> {
     const userRepository = getRepository(User);
 
     const user = await userRepository.findOne(id);
