@@ -77,6 +77,10 @@ export class CreateTableUser1636820243127 implements MigrationInterface {
             isNullable: true,
           },
           {
+            name: 'user_id',
+            type: 'varchar',
+          },
+          {
             name: 'created_at',
             type: 'timestamp',
             default: 'now()',
@@ -85,6 +89,15 @@ export class CreateTableUser1636820243127 implements MigrationInterface {
             name: 'updated_at',
             type: 'timestamp',
             default: 'now()',
+          },
+        ],
+        foreignKeys: [
+          {
+            columnNames: ['user_id'],
+            referencedColumnNames: ['id'],
+            referencedTableName: 'users',
+            onDelete: 'CASCADE',
+            onUpdate: 'CASCADE',
           },
         ],
       })
@@ -106,8 +119,16 @@ export class CreateTableUser1636820243127 implements MigrationInterface {
             length: '255',
           },
           {
+            name: 'value',
+            type: 'decimal',
+          },
+          {
             name: 'type',
             type: 'char',
+          },
+          {
+            name: 'user_id',
+            type: 'varchar',
           },
           {
             name: 'created_at',
@@ -118,6 +139,15 @@ export class CreateTableUser1636820243127 implements MigrationInterface {
             name: 'updated_at',
             type: 'timestamp',
             default: 'now()',
+          },
+        ],
+        foreignKeys: [
+          {
+            columnNames: ['user_id'],
+            referencedColumnNames: ['id'],
+            referencedTableName: 'users',
+            onDelete: 'CASCADE',
+            onUpdate: 'CASCADE',
           },
         ],
       })
@@ -147,6 +177,14 @@ export class CreateTableUser1636820243127 implements MigrationInterface {
             type: 'timestamp',
           },
           {
+            name: 'product_id',
+            type: 'varchar',
+          },
+          {
+            name: 'user_id',
+            type: 'varchar',
+          },
+          {
             name: 'created_at',
             type: 'timestamp',
             default: 'now()',
@@ -155,6 +193,22 @@ export class CreateTableUser1636820243127 implements MigrationInterface {
             name: 'updated_at',
             type: 'timestamp',
             default: 'now()',
+          },
+        ],
+        foreignKeys: [
+          {
+            columnNames: ['product_id'],
+            referencedColumnNames: ['id'],
+            referencedTableName: 'products',
+            onDelete: 'CASCADE',
+            onUpdate: 'CASCADE',
+          },
+          {
+            columnNames: ['user_id'],
+            referencedColumnNames: ['id'],
+            referencedTableName: 'users',
+            onDelete: 'CASCADE',
+            onUpdate: 'CASCADE',
           },
         ],
       })
