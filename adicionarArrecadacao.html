@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="sortcut icon" href="src/assets/img/CovidLogo.png" type="image">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="src/assets/css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <title>CoviDonation | Adicionar Arrecadação</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <a class="navbar-brand" href="#">CoviDonation - Administração</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Gerenciamento<span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="usuario.html">Usuários</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Sair</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <main>
+        <section class="container p-3" style="margin-top: 15px;">   
+            <h3><b>Adicionar nova arrecadação</b></h3>
+            <hr/>
+            <form>
+                <div class="form-group">
+                  <label for="data">Data</label>
+                  <input type="date" class="form-control" id="data" >
+                </div>
+                <div class="form-group">
+                  <label for="quantia">Quantia Arrecadada </label>
+                  <input  type="number" min="1" step="any" class="form-control" id="quantia" placeholder="R&#36;0.000,00" >
+                </div>
+              </form>
+              <div class="text-right">
+              <button type="button" class="btn btn-primary">Limpar</button>
+              <button type="button" class="btn btn-success">Adicionar</button>
+              </div>
+        </section>
+      </main>
+      <footer>
+        <hr>
+        <p class="text-center">Portal Administrativo <br>CoviDonation - Todos os direitos reservados</p>
+      </footer>
+</body>
+</html>
