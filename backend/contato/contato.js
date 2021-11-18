@@ -1,10 +1,9 @@
 let enviar = document.getElementById("enviar");
 
-let nome = document.getElementById('formGroupExampleInput');
-let email = document.getElementById('exampleFormControlInput1');
-let telefone = document.getElementById('formGroupExampleInput2');
-let mensagem = document.getElementById('exampleFormControlTextarea1');
-
+let nome = document.getElementById('nomeCompleto');
+let email = document.getElementById('sendEmail');
+let telefone = document.getElementById('telefone');
+let mensagem = document.getElementById('mensagem');
 
 enviar.onclick = function(){
     
