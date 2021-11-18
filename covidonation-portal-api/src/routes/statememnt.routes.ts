@@ -12,13 +12,13 @@ statementRouter.get('/', (request, response) => {
 });
 
 statementRouter.post('/', (request, response) => {
-  const { description, value, type, user } = request.body;
+  const { description, value, type, user_id } = request.body;
 
   const statement = new Statement();
   statement.description = description;
   statement.value = value;
   statement.type = type;
-  statement.user = user;
+  statement.user.id = user_id;
 
   const statementRepository = getRepository(Statement);
   statementRepository
@@ -33,7 +33,7 @@ statementRouter.post('/', (request, response) => {
 
 statementRouter.put('/:id', (request, response) => {
   const { id } = request.params;
-  const { description, value, type, user } = request.body;
+  const { description, value, type, user_id } = request.body;
 
   const statementRepository = getRepository(Statement);
   statementRepository
@@ -42,7 +42,7 @@ statementRouter.put('/:id', (request, response) => {
       statement!.description = description;
       statement!.value = value;
       statement!.type = type;
-      statement!.user = user;
+      statement!.user.id = user_id;
 
       statementRepository
         .save(statement!)

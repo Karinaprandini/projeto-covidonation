@@ -18,14 +18,16 @@ stockRouter.get('/', (request, response) => {
 });
 
 stockRouter.post('/', (request, response) => {
-  const { checkin_date, checkout_date, quantity, product, user } = request.body;
+  const { checkin_date, checkout_date, quantity_id, product, user_id } =
+    request.body;
+  //Pegar o usuário pelo ID e o produto pelo ID
 
   const stock = new Stock();
   stock.checkin_date = checkin_date;
   stock.checkout_date = checkout_date;
-  stock.product = product;
-  stock.user = user;
-  stock.quantity = quantity;
+  stock.product.id = product;
+  stock.user.id = user_id;
+  stock.quantity = quantity_id;
 
   const stockRepository = getRepository(Stock);
   stockRepository
@@ -40,7 +42,8 @@ stockRouter.post('/', (request, response) => {
 
 stockRouter.put('/:id', (request, response) => {
   const { id } = request.params;
-  const { checkin_date, checkout_date, quantity, product, user } = request.body;
+  const { checkin_date, checkout_date, quantity, product_id, user_id } =
+    request.body;
 
   const stockRepository = getRepository(Stock);
 
@@ -48,8 +51,8 @@ stockRouter.put('/:id', (request, response) => {
     stock!.checkin_date = checkin_date;
     stock!.checkout_date = checkout_date;
     stock!.quantity = quantity;
-    stock!.product = product;
-    stock!.user = user;
+    stock!.product = product_id;
+    stock!.user.id = user_id;
 
     stockRepository
       .save(stock!)
@@ -71,7 +74,9 @@ stockRouter.delete('/:id', (request, response) => {
     stockRepository
       .remove(stock!)
       .then(() => {
-        return response.status(204).send();
+        return response
+          .status(204)
+          .json({ message: 'Estoque removido com sucesso' });
       })
       .catch((err) => {
         return response.status(400).json({ error: err.message });
