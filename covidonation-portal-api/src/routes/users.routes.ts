@@ -28,6 +28,8 @@ usersRouter.get('/:id', (request, response) => {
   userRepository
     .findOne(id)
     .then((user) => {
+      // @ts-ignore: Object is possibly 'null'.
+      delete user.password;
       return response.json(user);
     })
     .catch((err) => {
@@ -74,6 +76,9 @@ usersRouter.delete('/:id', (request, response) => {
   userRepository
     .findOne(id)
     .then((user) => {
+      if (!user) {
+        return response.status(400).json({ error: 'User not found' });
+      }
       userRepository.remove(user!);
       return response.status(204).json({ msg: 'Usuário removido com sucesso' });
     })
