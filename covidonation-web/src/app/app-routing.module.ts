@@ -12,6 +12,14 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
   },
   {
+    path: 'contato',
+    loadChildren: () => import('./contato/contato.module').then((m) => m.ContatoModule),
+  },
+  {
+    path: 'abadoe',
+    loadChildren: () => import('./abadoe/abadoe.module').then((m) => m.AbadoeModule),
+  },
+  {
     path: '**',
     redirectTo: 'notfound',
   },

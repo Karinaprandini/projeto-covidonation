@@ -1,0 +1,92 @@
+<link rel="stylesheet" type="text/css" href="contato.component.css" />
+<div class="container" style="margin-top: 85px; margin-bottom: 55px">
+    <div class="row">
+      <div class="col-sm-6 p-5 text-center" style="margin-top: 10px">
+          <h2><b>Entre em contato com a gente!</b></h2>
+          <p class="text-justify">
+            Envie agora sua mensagem para o CoviDonation. Basta preencher suas
+            informações pessoais ao lado e deixar a mensagem que deseja! Entraremos
+            em contato pelo o e-mail informado.
+          </p>
+          <img src="assets/img/contato.png" class="img-fluid background-shadow p-3">
+      </div>
+  
+      
+    
+        <div class="col-sm-6" style="margin-top: 20px">
+          <div class="shadow p-5">
+            <div class="text-center">
+              <h3>Mensagem</h3>
+              <hr />
+            </div>
+            <form>
+              <div class="form-group">
+                <label for="nomeCompleto">Nome Completo</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="nomeCompleto"
+                  required
+                  placeholder="Nome Sobrenome"
+                />
+              </div>
+              <div class="form-group">
+                <label for="telefone">Telefone</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="telefone"
+                  required
+                  placeholder="(00) 00000-0000"
+                />
+              </div>
+              <div class="form-group">
+                <label for="endEmail">Endereço de Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="sendEmail"
+                  required
+                  placeholder="email@email.com"
+                />
+              </div>
+              <div class="form-group">
+                <label for="mensagem">Deixe sua mensagem</label>
+                <textarea
+                  class="form-control"
+                  id="mensagem"
+                  required
+                  rows="3"
+                ></textarea>
+              </div>
+              <div class="text-center">
+                <button class="btn btn-info" type="submit" id="enviar">
+                  Enviar Mensagem
+                </button>
+              </div>
+            </form>
+          </div>
+         </div>
+    </div>
+  </div>
+  <script src="/backend/contato/contato.js"></script>
+  
+  <script
+    src="https://kit.fontawesome.com/f02493a03c.js"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"
+  ></script>  
