@@ -1,5 +1,4 @@
 let enviar = document.getElementById("enviar");
-
 let nome = document.getElementById('nomeCompleto');
 let email = document.getElementById('sendEmail');
 let telefone = document.getElementById('telefone');
@@ -13,6 +12,8 @@ enviar.onclick = function(){
         telefone: telefone.value,
         mensagem: mensagem.value
     }
+
+    if(email.value && mensagem.value != ''){
 
     let xhr = new XMLHttpRequest();
     xhr.open('POST', '/');
@@ -32,3 +33,6 @@ enviar.onclick = function(){
 
     xhr.send(JSON.stringify(dadosFormulario));
 }
+
+}
+
